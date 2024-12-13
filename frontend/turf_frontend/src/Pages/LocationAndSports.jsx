@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./LocationAndSports.css";
+import Navbar from "../Components/Navbar.jsx";
 
 
 
@@ -31,6 +32,7 @@ const LocationAndSports = () => {
 
     return (
         <div>
+            <Navbar/>
             <h2>Select Location and Sport</h2>
             <div className="dropdown-container">
                 <select
