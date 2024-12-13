@@ -36,3 +36,16 @@
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 20px;
 }
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #00bcd4; /* Adjust color */
+  color: white;
+  font-weight: bold;
+  border-radius: 50%; /* Makes it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-transform: uppercase; /* Ensures the letter is capitalized */
+}

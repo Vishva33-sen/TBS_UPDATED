@@ -80,9 +80,10 @@ const LoginForm = () => {
       if (response.status === 200) { // Check if response is OK
         setSuccess(response.data); // Set success message
         setError(""); // Clear any previous error messages
-
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
         // Optionally redirect to the homepage or another page after successful login
-        window.location.href = "/home"; // Example redirection
+        window.location.href = "/location"; // Example redirection
       } else {
         // Handle unexpected status codes
         setError("Unexpected response from the server.");

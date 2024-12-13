@@ -19,7 +19,7 @@ const HomePage = () => {
       </div>
       <div className="cta">
         <h2>Get Started Today!</h2>
-        <a href="/home/signup">Sign Up Now</a>
+        <a href="/signup">Sign Up Now</a>
       </div>
     </>
   );
