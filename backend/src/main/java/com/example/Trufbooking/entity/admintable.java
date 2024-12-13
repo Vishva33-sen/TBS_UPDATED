@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Type;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -31,18 +33,6 @@ public class admintable implements Serializable {
     @Column(name="price", nullable = false)
     private double price;
 
-    @Column(name="cricket", nullable = false)
-    private String cricket;
-
-    @Column(name="football", nullable = false)
-    private String football;
-
-    @Column(name="badminton", nullable = false)
-    private String badminton;
-
-    @Column(name="volleyball", nullable = false)
-    private String volleyball;
-
-
-
+    @Column(name = "sports", columnDefinition = "JSON", nullable = false)
+    private String sports;
 }

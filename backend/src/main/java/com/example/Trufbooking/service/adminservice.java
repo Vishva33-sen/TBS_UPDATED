@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class adminservice {
@@ -26,8 +27,6 @@ public class adminservice {
         return adminrepo.findDistinctLocations();
     }
 
-    public List<turfDto> getTurfsByLocationAndSport(String location, String sport) {
-        return adminrepo.findByLocationAndSport(location, sport);
-    }
+
 
 }

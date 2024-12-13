@@ -21,8 +21,5 @@ public class admincontroller {
         return adminser.getDistinctLocations();
     }
 
-    @GetMapping("/turfs")
-    public List<turfDto> getTurfs(@RequestParam String location, @RequestParam String sport) {
-        return adminser.getTurfsByLocationAndSport(location, sport);
-    }
+
 }

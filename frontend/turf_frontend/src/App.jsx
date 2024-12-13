@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage'
 import LocationAndSports from './pages/LocationAndSports';
+import TurfDetails from "./Pages/TrufDetails.jsx";
 import './index.css';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/location" element={<LocationAndSports/>} />
+                <Route path="/turfs" element={<TurfDetails />} />
             </Routes>
             <Footer />
           </div>

@@ -12,11 +12,11 @@ import java.util.List;
 @Repository
 public interface slotrepo extends JpaRepository<slot, Integer> {
 
-    @Query("SELECT t FROM admintable t WHERE t.turfid = :turfid")
-    admintable findTurfDetailsById(@Param("turfid") int turfid);
-
-    @Query("SELECT s FROM slot s WHERE s.turf.turfid = :turfId")
-    List<slot> findSlotsByTurfId(@Param("turfId") int turfId);
+//    @Query("SELECT t FROM admintable t WHERE t.turfid = :turfid")
+//    admintable findTurfDetailsById(@Param("turfid") int turfid);
+//
+//    @Query("SELECT s FROM slot s WHERE s.turf.turfid = :turfId")
+//    List<slot> findSlotsByTurfId(@Param("turfId") int turfId);
 }
 
 //@Query(value = "SELECT * FROM slot_detail WHERE turfid = :turfId", nativeQuery = true)
