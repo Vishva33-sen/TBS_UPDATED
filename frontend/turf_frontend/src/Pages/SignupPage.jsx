@@ -55,37 +55,41 @@ const SignupPage = () => {
       {success && <p style={{ color: "green" }}>{success}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email:</label>
         <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
         />
+        <label htmlFor="username">Username:</label>
         <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+            required
         />
+        <label htmlFor="password">Password:</label>
         <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
         />
+        <label htmlFor="mobile">Mobile Number:</label>
         <input
-          type="text"
-          name="mobile_number"
-          placeholder="Mobile Number"
-          value={formData.mobile_number}
-          onChange={handleChange}
-          required
+            type="text"
+            name="mobile_number"
+            placeholder="Mobile Number"
+            value={formData.mobile_number}
+            onChange={handleChange}
+            required
         />
         <button type="submit">Signup</button>
       </form>

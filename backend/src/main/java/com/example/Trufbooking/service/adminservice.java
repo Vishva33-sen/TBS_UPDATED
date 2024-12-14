@@ -15,18 +15,13 @@ public class adminservice {
     @Autowired
     admintable_repo adminrepo;
 
-//    public List<String> getDistinctLocations() {
-//        List<admintable> adminTableList = adminrepo.findDistinctByLocation();
-//        return adminTableList
-//                .stream()
-//                .map(admintable::getLocation)
-//                .distinct()
-//                .toList();
-//    }
     public List<String> getDistinctLocations() {
         return adminrepo.findDistinctLocations();
     }
 
+    public List<String> getDistinctSports() {
+        return adminrepo.findDistinctSports();
+    }
 
 
 }

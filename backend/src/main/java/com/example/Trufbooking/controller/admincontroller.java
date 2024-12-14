@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/home")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class admincontroller {
 
     @Autowired
@@ -21,5 +21,10 @@ public class admincontroller {
         return adminser.getDistinctLocations();
     }
 
+    @GetMapping("/sports")
+    public List<String> getDistinctSports() {
+        System.out.println(adminser.getDistinctSports());
+        return adminser.getDistinctSports();
+    }
 
 }

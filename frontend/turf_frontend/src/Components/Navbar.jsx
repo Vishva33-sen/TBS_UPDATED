@@ -8,23 +8,21 @@ const Navbar = () => {
         <div className="navbar">
             <div className="logo">TurfBooking System</div>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
                 {email ? (
                     <>
                         <li>
-                            <div className="avatar">{firstLetter}</div> {/* Circular Avatar */}
+                            <button
+                                onClick={() => {
+                                    localStorage.clear();
+                                    window.location.reload();
+                                }} className="logout-btn">
+                                <li><a href="/home">Logout</a></li>
+                            </button>
                         </li>
-                        <button
-                            onClick={() => {
-                                localStorage.clear();
-                                window.location.reload();
-                            }}>
-                            Logout
-                        </button>
-                    </>
-                ) : (
+                    </>) : (
                     <>
                         <li><a href="/login">Login</a></li>
                         <li><a href="/signup">Signup</a></li>
