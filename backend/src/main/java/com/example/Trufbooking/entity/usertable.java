@@ -15,6 +15,7 @@ import java.io.Serializable;
 @DynamicInsert
 @Table(name="usertable")
 public class usertable implements Serializable {
+
     @Id
     @Column(name = "email", nullable = false)
     private String email;
@@ -36,4 +37,6 @@ public class usertable implements Serializable {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+
 }

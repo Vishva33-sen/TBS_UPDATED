@@ -1,7 +1,8 @@
 // src/Pages/SignupPage.jsx
 import React, { useState } from "react";
 import api from "../utils/api"; // Adjust the import path as needed
-import "./SignupPage.css"; // Optional for styling
+import "./SignupPage.css";
+import {useNavigate} from "react-router-dom";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const SignupPage = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,18 +24,19 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-        console.log(formData.mobile_number);
       const response = await api.post("/home/signup", formData);
 
       if (response.status === 201) {
-        setSuccess(response.data);// Show success message from backend
-        setError(""); // Clear error messages
+        setSuccess('Signup successful');setError(""); // Clear error messages
         setFormData({
           email: "",
           username: "",
           password: "",
           mobile_number: "",
         });
+        setTimeout(() => {
+          navigate('/login'); // Navigate to login page after success
+        }, 1500);
     // Reset form
       } else {
         setError("Unexpected response from the server.");

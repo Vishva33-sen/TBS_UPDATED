@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public interface admintable_repo extends JpaRepository<admintable, Integer> {
     @Query("select distinct a1.location from admintable a1")
     List<String> findDistinctLocations();

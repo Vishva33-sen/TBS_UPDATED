@@ -5,23 +5,31 @@ import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage'
 import LocationAndSports from './pages/LocationAndSports';
-
+import {AuthProvider} from "./utils/AuthContext.jsx";
+import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 
 const App = () => {
   return (
 
-    <Router>
+      <Router>
           <div className="app">
-            <Navbar />
-            <Routes>
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/location" element={<LocationAndSports/>} />
-            </Routes>
-            <Footer />
+              <AuthProvider>
+
+                  <Navbar />
+                  <Routes>
+                      <Route path="/home" element={<HomePage />} />
+                      <Route path="/signup" element={<SignupPage />} />
+                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/location" element={
+                          <ProtectedRoute>
+                              <LocationAndSports/>
+                          </ProtectedRoute> }/>
+                  </Routes>
+                  <Footer />
+
+              </AuthProvider>
           </div>
-        </Router>
+      </Router>
   );
 };
 
