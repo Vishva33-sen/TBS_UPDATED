@@ -1,7 +1,6 @@
 package com.example.Trufbooking.entity;
 
 
-import java.util.List;
 
 public class turfDto {
         private String turfname;
@@ -9,15 +8,25 @@ public class turfDto {
         private Long mobilenumber;
         private Integer turfid;
         private String location;
+        private String sport;
 
-    public turfDto(String turfname, Double price, Long mobilenumber, Integer turfid, String location) {
+
+    public turfDto(String turfname, Double price, Long mobilenumber, Integer turfid, String location, String sport) {
         this.turfname = turfname;
         this.price = price;
         this.mobilenumber = mobilenumber;
         this.turfid = turfid;
         this.location = location;
+        this.sport = sport;
     }
 
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
 
     public String getTurfname() {
         return turfname;

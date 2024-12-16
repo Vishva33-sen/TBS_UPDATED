@@ -6,7 +6,9 @@ import com.example.Trufbooking.repository.admintable_repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,5 +25,11 @@ public class adminservice {
         return adminrepo.findDistinctSports();
     }
 
+    public List<admintable> findTurfsByLocationAndSport(String location, String sport) {
+        return adminrepo.findByLocationAndSport(location, sport);
+    }
 
+//    public List<admintable> getFilteredTurfs(String sports, String location) {
+//        return adminrepo.findBySportsAndLocation(sports, location);
+//    }
 }

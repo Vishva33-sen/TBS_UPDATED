@@ -8,6 +8,7 @@
     import org.springframework.security.config.Customizer;
     import org.springframework.security.config.annotation.web.builders.HttpSecurity;
     import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+    import org.springframework.security.config.http.SessionCreationPolicy;
     import org.springframework.security.core.userdetails.UserDetailsService;
     import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
     import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
@@ -36,15 +37,21 @@
             http.csrf(AbstractHttpConfigurer::disable)
                     .cors(Customizer.withDefaults())
                     .authorizeHttpRequests(auth -> auth
-                            .requestMatchers("/home/login","/home/signup","/home/locations","/home/sports","/api/google-login").permitAll()
+                            .requestMatchers("/home/login","/home/signup","/home/locations","/home/sports","/home/filter-turfs","/home/turfs","/api/google-login").permitAll()
                             .anyRequest().authenticated()
                     )
                     .oauth2Login(oauth -> oauth
                             .loginPage("/home/login")
                             .defaultSuccessUrl("/location", true)
-                            //.userInfoEndpoint(userInfo -> userInfo.oidcUserService(oidcUserService()))
-                            //.failureUrl("/home/login?error=true")
+                                    .defaultSuccessUrl("/home/turfs",true)
+                            .userInfoEndpoint(userInfo -> userInfo.oidcUserService(oidcUserService()))
+                            .failureUrl("/home/login?error=true")
                     )
+//                    .sessionManagement(session -> session
+//                            .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // Ensure session creation if needed
+//                            .maximumSessions(10)  // Allow only one active session (optional)
+//                            //.expiredUrl("/home/login?expired=true")
+//                    )
                     .httpBasic(Customizer.withDefaults());
                   return  http.build();
         }
@@ -76,19 +83,19 @@
             return new OidcUserService();
         }
 
-        @Bean
-        public WebMvcConfigurer webMvcConfigurer() {
-            return new WebMvcConfigurer() {
-                @Override
-                public void addCorsMappings(CorsRegistry registry) {
-                    registry.addMapping("/**")
-                            .allowedOrigins("http://localhost:5173")
-                            .allowedMethods("GET", "POST", "PUT", "DELETE")
-                            .allowedHeaders("*")
-                            .allowCredentials(true);
-                }
-            };
-        }
+//        @Bean
+//        public WebMvcConfigurer webMvcConfigurer() {
+//            return new WebMvcConfigurer() {
+//                @Override
+//                public void addCorsMappings(CorsRegistry registry) {
+//                    registry.addMapping("/**")
+//                            .allowedOrigins("http://localhost:5173")
+//                            .allowedMethods("GET", "POST", "PUT", "DELETE")
+//                            .allowedHeaders("*")
+//                            .allowCredentials(true);
+//                }
+//            };
+//        }
     }
 
 

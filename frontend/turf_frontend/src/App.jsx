@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage'
 import LocationAndSports from './pages/LocationAndSports';
+import TurfDetails from "./pages/TurfDetails";
 import {AuthProvider} from "./utils/AuthContext.jsx";
 import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 
@@ -24,6 +25,13 @@ const App = () => {
                           <ProtectedRoute>
                               <LocationAndSports/>
                           </ProtectedRoute> }/>
+                      <Route
+                          path="/turfs" element={
+                              <ProtectedRoute>
+                                  <TurfDetails /> {/* Add TurfDetails route */}
+                              </ProtectedRoute>}
+                      />
+
                   </Routes>
                   <Footer />
 
